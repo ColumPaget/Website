@@ -3,12 +3,25 @@
 <title>Hashrat</title>
 <meta http-equiv="Content-Language" content="English" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="/style.css" media="screen" />
 </head>
 <body>
 
-<div id="summary">
+<div align=center id="PageHeader">
 <h1>Hashrat - a program for doing things with cryptographic hashes</h1>
+<table border=0 cellspacing=0>
+<tr>
+<td> <a href="https://github.com/ColumPaget/Hashrat">GitHub</a> </td>
+<td> &nbsp; &nbsp; </td>
+<td> <a href="http://www.cjpaget.co.uk/Code/Hashrat/hashrat-1.4.tgz">Source Tarball</a> </td>
+</tr>
+</table>
+</div>
+
+<br />
+<br />
+
+<div id="summary">
 Hashrat is a 'C' program that generates hashes with the md5, sha1, sha256, sha512, whirlpool, jh-244, jh256, jh-384 and jh-512 hash functions, and also the HMAC versions of those functions. It can output in 'traditional' format (same as md5sum and shasum and the like), or its own format. Hashes can be output in octal, decimal, hexadecimal, uppercase hexadecimal or base64. It supports directory recursion, storing hashes in extended filesystem attributes, hashing entire devices, generating a hash for an entire directory, finding duplicate files, and searching for files matching a specified hash. It has a 'CGI' mode that can be used as a web-page to lookup hashes.
 </div>
 <div id="License">
@@ -22,22 +35,34 @@ Cryptographic hashes are algorithms that produce an output string that's a kind 
 <h2>1) Password Generator</h2>
 I mostly use hashrat for generating passwords. I already have a number of simple passwords/passphrases that I can remember, and when generating a password for a website I combine the website name with the password, then I hash the whole lot. Including the website name means that the resulting hash will be unique to the website. So, for example:
 
-sh-4.2# /usr/bin/hashrat -64 -sha1 -lines
-ebay.com/password
-38v+fhAbErn/W1UyjAnkCuygi7Y=
+<p>
+<code>
+sh-4.2# /usr/bin/hashrat -64 -sha1 -lines<br />
+ebay.com/password<br />
+38v+fhAbErn/W1UyjAnkCuygi7Y=<br />
+</code>
+</p>
 
 produces a different string to
 
-sh-4.2# /usr/bin/hashrat -64 -sha1 -lines
-facebook.com/password
-1RG7Zvm9ksEgq4znJSwWwTRrRIM=
+<p>
+<code>
+sh-4.2# /usr/bin/hashrat -64 -sha1 -lines<br />
+facebook.com/password<br />
+1RG7Zvm9ksEgq4znJSwWwTRrRIM=<br />
+</code>
+</p>
 
 This output string can then be used as a password for the website. Obviously this system only works in environments that support cut-and-paste.
 
 However, in order to ensure my passwords are unique to me, and won't be the same as anyone else who is using hashrat and entering facebook.com/password, I add a 'pin number' to the end of the input string, so now I've got:
 
-facebook.com/password/12345
-l/SbvIlvzheHgJWjy+J+mYQ9wl4=
+<p>
+<code>
+facebook.com/password/12345<br />
+l/SbvIlvzheHgJWjy+J+mYQ9wl4=<br />
+</code>
+</p>
 
 Obviously, you shouldn't use 'password' as your password or '12345' as your pin.
 
@@ -55,10 +80,5 @@ Hashrat can be run in a mode where it searches for duplicate files, (files conta
 
 <h2>Find file matching a hash</h2>
 Hashrat can take a list of files on stdin, or and output any files found that match this list. Alternatively it can upload such lists to a memcached server, and then multiple hashrats on multiple systems can check against those entries in the memcached server.
-
-
-Hashrat is available on GitHub at <a href=\"https://github.com/ColumPaget/Hashrat\">https://github.com/ColumPaget/Hashrat</a>
-
-You can download a source tarball of the latest version here: <a href=\"http://www.cjpaget.co.uk/Code/Hashrat/hashrat-1.4.tgz\">Download Latest Version</a>
 
 </body>
