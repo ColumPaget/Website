@@ -72,13 +72,14 @@ If the website is hacked, and their password database stolen, it's highly unlike
 
 Hashrat also has a 'cgi mode' where it can be run as a cgi program and thus used through a web-browser.
 
-<h2>File integrity checker</h2>
+<h2>2) File integrity checker</h2>
 Hashrat can be used to detect changes to a list of files. First hashrat is run in 'hashing mode', generating the list, then it's run in 'checking mode' checking whether the hashes of the files have changed (which would mean the files themselves must have been altered). 
 
-<h2>Find duplicate files</h2>
+<h2>3) Find duplicate files</h2>
 Hashrat can be run in a mode where it searches for duplicate files, (files containing the same data) and outputs a list of duplicates found.
 
-<h2>Find file matching a hash</h2>
+<h2>4) Find file matching a hash</h2>
 Hashrat can take a list of files on stdin, or and output any files found that match this list. Alternatively it can upload such lists to a memcached server, and then multiple hashrats on multiple systems can check against those entries in the memcached server.
 
 </body>
+</html>
